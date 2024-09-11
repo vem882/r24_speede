@@ -17,4 +17,5 @@ Tämä repository on tarkoitettu Oulun ammattikorkeakoulun TVT24KMO-luokan, Ryhm
 ## Project Structure
 
 
-
+## Suunitelma
+tähän se tulee. 
