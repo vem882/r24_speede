@@ -31,7 +31,7 @@ Tarkoituksena on oppia projektien toteutusta ryhmätyönä, sekä näyttää aik
 - Pelimekaniikan suunnittelu
 - Arduino-komponenttien määrittely
 
-### Vaihe 2: Toteutus
+### Vaihe 2: Toteutus 
 - Laitteiston ja ohjelmiston yhdistäminen
 - Ohjelmakoodin kehittäminen
 
