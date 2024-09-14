@@ -21,7 +21,11 @@ Tässä osiossa kuvaamme projektin tiedostorakenteen ja kunkin tiedoston tarkoit
 - **README.md**: Tämä tiedosto, joka sisältää projektin kuvauksen.
 
 ## Suunnitelma
-Tähän tulee tarkempi suunnitelma, joka sisältää projektin tavoitteet, aikataulun ja tehtäväjaon.
+-	OAMK:n tietotekniikan tutkinto-ohjelma kurssilla, teemme ryhmätyönä tietotekniikan sovellusprojektin opintojaksolla, jossa suunnittelemme, sekä rakennamme Speden Spelit- pelin, Arduino-mikrokontrollerilla. 
+-	Toteutamme projektin ryhmätyönä, johon osallistuu Neljän hengen porukka #jäsenet. 
+Tarkoituksena on oppia projektien toteutusta ryhmätyönä, sekä näyttää aikaisemmilla ohjelmointi ja tietotekniikan kursseilla oppimia asioita, kuten ohjelmointi, Arduinon käsittely ja tuoda nämä opit käytäntöön projektin muodossa. 
+
+
 
 ### Vaihe 1: Ideointi ja konseptointi
 - Pelimekaniikan suunnittelu
