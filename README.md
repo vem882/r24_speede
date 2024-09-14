@@ -14,7 +14,10 @@ Tämä repository on tarkoitettu Oulun ammattikorkeakoulun TVT24KMO-luokan, Ryhm
 
 ## Projektissa käytettävät komponentit
 - Arduino UNO
-- Päivittyy
+- 4x Lediä <a title="LED">💡</a>
+- 4x painiketta <a title="button">📥 📤</a>
+- 2x 7-segmenttinäyttö 📺
+- 2x 74HC595 serial-to-parallel muuntimia
 
 ## Projektin rakenne
 Tässä osiossa kuvaamme projektin tiedostorakenteen ja kunkin tiedoston tarkoituksen. Päivittyy...
