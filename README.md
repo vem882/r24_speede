@@ -1,21 +1,39 @@
-## OAMK: TVT24KMO/ Ryhmän 24 Tietotekniikan sovellusprojekti, jossa luodaan Speden Spelit Arduino Unolla.
+# Speden Spelit
 
-# Speden Spelit 
+Tämä repository on tarkoitettu Oulun ammattikorkeakoulun TVT24KMO-luokan, Ryhmän 24 tietotekniikan sovellusprojektia varten, jossa toteutamme Speden Spelit -pelin käyttämällä Arduino Uno -mikrokontrolleria ja muita elektroniikkakomponentteja.
 
-Tämä repository on tarkoitettu Oulun ammattikorkeakoulun TVT24KMO-luokan, Ryhmän 24 tietotekniikan sovellusprojektia varten, jossa teemme Speeden Spellit-peliä, komponenteista Arduino Uno-mikrotietokonetta käyttäen.
-# Ryhmän jäsenet
--
--
--
--
+## Ryhmän jäsenet
+- Aleksandr Starchenkov
+- Alex Sheikin
+- Dmitry Troshkov
+- Martin Negin
 
-
-## Projektissa käytettävät komponentit:
+## Projektissa käytettävät komponentit
 - Arduino UNO
 - Päivittyy
 
-## Project Structure
+## Projektin rakenne
+Tässä osiossa kuvaamme projektin tiedostorakenteen ja kunkin tiedoston tarkoituksen. Päivittyy...
+
+- **/src**: Projektin lähdekooditiedostot.
+- **/docs**: Projektin dokumentaatio.
+- **/assets**: Pelissä käytettävät grafiikat, äänet ja muut resurssit.
+- **README.md**: Tämä tiedosto, joka sisältää projektin kuvauksen.
+
+## Suunnitelma
+Tähän tulee tarkempi suunnitelma, joka sisältää projektin tavoitteet, aikataulun ja tehtäväjaon.
+
+### Vaihe 1: Ideointi ja konseptointi
+- Pelimekaniikan suunnittelu
+- Arduino-komponenttien määrittely
+
+### Vaihe 2: Toteutus
+- Laitteiston ja ohjelmiston yhdistäminen
+- Ohjelmakoodin kehittäminen
+
+### Vaihe 3: Testaus ja viimeistely
+- Pelin toiminnallisuuden testaus
+- Viimeiset korjaukset ja parannukset
 
 
-## Suunitelma
-tähän se tulee. 
+
