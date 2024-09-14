@@ -19,10 +19,10 @@ Tämä repository on tarkoitettu Oulun ammattikorkeakoulun TVT24KMO-luokan, Ryhm
 ## Projektin rakenne
 Tässä osiossa kuvaamme projektin tiedostorakenteen ja kunkin tiedoston tarkoituksen. Päivittyy...
 
-- **/src**: Projektin lähdekooditiedostot.
-- **/docs**: Projektin dokumentaatio.
-- **/assets**: Pelissä käytettävät grafiikat, äänet ja muut resurssit.
-- **README.md**: Tämä tiedosto, joka sisältää projektin kuvauksen.
+- **/iamges**: Projektiin liityvät kuvat.
+- **/Kooditoteutus**: Projektin kooditotutuksen lähdekoodit.
+- **/Konseptointi**: Projektiin liityvät konseptoinit löytyvät tästä kansiosta.
+- **README.md**: Tämä tiedosto, joka sisältää projektin kuvauksen, sekä suunitelman.
 
 ## Suunnitelma
 -	OAMK:n tietotekniikan tutkinto-ohjelma kurssilla, teemme ryhmätyönä tietotekniikan sovellusprojektin opintojaksolla, jossa suunnittelemme, sekä rakennamme Speden Spelit- pelin, Arduino-mikrokontrollerilla. 
@@ -33,6 +33,7 @@ Tarkoituksena on oppia projektien toteutusta ryhmätyönä, sekä näyttää aik
 
 ### Vaihe 1: Konseptointi
 - Pelimekaniikan suunnittelu
+- Vuokaaviot
 - Arduino-komponenttien määrittely
 
 ### Vaihe 2: Toteutus 
