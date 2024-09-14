@@ -19,7 +19,7 @@ Tämä repository on tarkoitettu Oulun ammattikorkeakoulun TVT24KMO-luokan, Ryhm
 ## Projektin rakenne
 Tässä osiossa kuvaamme projektin tiedostorakenteen ja kunkin tiedoston tarkoituksen. Päivittyy...
 
-- **/iamges**: Projektiin liityvät kuvat.
+- **/images**: Projektiin liityvät kuvat.
 - **/Kooditoteutus**: Projektin kooditotutuksen lähdekoodit.
 - **/Konseptointi**: Projektiin liityvät konseptoinit löytyvät tästä kansiosta.
 - **README.md**: Tämä tiedosto, joka sisältää projektin kuvauksen, sekä suunitelman.
