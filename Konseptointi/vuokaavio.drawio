@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:131.0) Gecko/20100101 Firefox/131.0" version="24.7.16">
   <diagram name="Sivu-1" id="1b5zdGBChp_Ivy9_nghd">
-    <mxGraphModel dx="6839" dy="3864" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="4094" dy="2437" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -278,8 +278,8 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="jRPcBXEXmey0zycCKTSb-177" value="Onko Score 5 or 10 or 15 or 20 or 25 or 30 or &lt;br&gt;35 or 40 or 45 or 50 or 55 or 60 or 65 or &lt;br&gt;70 or 75 or 80 or 85 or 90 or 95 or 100?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#66B2FF;" parent="1" vertex="1">
-          <mxGeometry x="-730" y="620" width="310" height="200" as="geometry" />
+        <mxCell id="jRPcBXEXmey0zycCKTSb-177" value="&lt;span class=&quot;hljs-keyword&quot;&gt;if&lt;/span&gt; score % &lt;span class=&quot;hljs-number&quot;&gt;5&lt;/span&gt; == &lt;span class=&quot;hljs-number&quot;&gt;0&lt;/span&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#66B2FF;" parent="1" vertex="1">
+          <mxGeometry x="-740" y="620" width="320" height="160" as="geometry" />
         </mxCell>
         <mxCell id="jRPcBXEXmey0zycCKTSb-182" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.938;entryY=0.536;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="jRPcBXEXmey0zycCKTSb-142" target="jRPcBXEXmey0zycCKTSb-177" edge="1">
           <mxGeometry relative="1" as="geometry" />
