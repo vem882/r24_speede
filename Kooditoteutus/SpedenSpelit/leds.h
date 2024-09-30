@@ -1,9 +1,10 @@
 #ifndef LEDS_H
 #define LEDS_H
-#include <arduino.h>
+
+#include <Arduino.h>
 
 /*
-  initializeLeds() subroutine intializes analog pins A2,A3,A4,A5
+  initializeLeds() subroutine intializes analog pins A2, A3, A4, A5
   to be used as outputs. Speden Spelit leds are connected to those
   pins.  
 */
@@ -33,19 +34,18 @@ void setAllLeds(void);
 
 /*
   show1() subroutine shows numbers 0,1,...,15 as binary numbers
-  waits a bit and repeats number "show"
+  waits a bit and repeats the number "show"
 */
 void show1(void);
 
 /*
-  show2(int) subroutine shows leds 0,1,2,3,0,1,2,3,.... with increasing
+  show2(int rounds) subroutine shows leds 0,1,2,3,0,1,2,3,.... with increasing
   changing rate. And when top change speed has been reached
-
-    Parameters:
   
+  Parameters:
   int rounds: This parameter determines how many times 0,1,2,3 sequence
-              is shown. 
+              is shown.
 */
-void show2(int);
+void show2(int rounds);
 
-#endif
+#endif  // LEDS_H

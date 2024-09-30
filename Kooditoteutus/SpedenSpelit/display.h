@@ -1,7 +1,9 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
-#include <arduino.h>
 
+#include <Arduino.h>  // Sisältää tarvittavat Arduino-kirjastot
+
+// Funktioiden otsikot:
 
 /*
   initializeDisplay subroutine initializes 5 pins needed for controlling 7-segment
@@ -11,11 +13,8 @@
   Arduino pin 10 = serial to parallel component latchClock
   Arduino pin 9  = serial to parallel component outEnable
   Arduino pin 8  = serial to parallel component serialInput
-  
-
 */
 void initializeDisplay(void);
-
 
 /*
   WriteByte subroutine writes number 0,1,...,9 to
@@ -34,20 +33,16 @@ void initializeDisplay(void);
 */
 void writeByte(uint8_t number, bool last);
 
-
 /*
   writeHighAndLowNumber subroutine writes a number 0,1,..,99
   to 2 cascaded 7-segment displays. This subroutine uses
   WriteByte subroutine to write 2 numbers to the display.
   
   Parameters:
-  
   uint8_t tens: number 0,1,..,9
   uint8_t ones: number 0,1,..,9
-  
 */
 void writeHighAndLowNumber(uint8_t tens,uint8_t ones);
-
 
 /*
   showResuts(byte result) This function separates tens and ones
@@ -59,4 +54,4 @@ void writeHighAndLowNumber(uint8_t tens,uint8_t ones);
 */
 void showResult(byte result);
 
-#endif
+#endif  // DISPLAY_H
