@@ -67,6 +67,7 @@ ISR(PCINT2_vect) {
       buttonNumber = pin - 2;  // Store the button number
       break;
     }
+    buttonNumber = -1;  // Reset button state after processing
   }
 }
 
@@ -196,7 +197,7 @@ void loop() {
     } else if (buttonNumber >= 0 && buttonNumber < 4) {  // Buttons 0-3
       checkGame(buttonNumber);
     }
-    buttonNumber = -1;  // Reset button state after processing
+    
   }
 
   // Handle Timer1 interrupts
