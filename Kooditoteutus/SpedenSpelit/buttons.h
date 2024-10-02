@@ -6,8 +6,9 @@
 #include <avr/interrupt.h>
 
 const byte firstPin = 2; // First PinChangeInterrupt on D-bus
-const byte lastPin =  5; // Last PinChangeInterrupt on D-bus
+const byte lastPin =  13; // Last PinChangeInterrupt on D-bus
 
+extern volatile int buttonNumber;
 /* 
   initButtonsAndButtonInterrupts subroutine is called from Setup() function
   during the initialization of Speden Spelit. This function does the following:
@@ -22,6 +23,6 @@ void initButtonsAndButtonInterrupts(void);
   PCINT2_vect Interrupt Service Routine (ISR) function for handling 
   Pin Change Interrupts on pins 2, 3, 4, 5 (D-bus on Arduino Uno).
 */
-ISR(PCINT2_vect);
+ISR(PCINT0_vect);
 
 #endif

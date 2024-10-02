@@ -1,6 +1,10 @@
 #include "display.h"
 #include "buttons.h"
 #include "leds.h"
+#include "SpedenSpelit.h"
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <EEPROM.h>
 
 // Use these 2 volatile variables for communicating between
 // loop() function and interrupt handlers
@@ -10,7 +14,7 @@ volatile bool newTimerInterrupt = false;  // for timer interrupt handler
 // Peliin liittyvät muuttujat
 byte randomLed = 0;
 int timerInterruptCount = 0;
-int gameSpeed = 1000;  // Alustava pelin nopeus
+int gameSpeed = 5000;  // Alustava pelin nopeus
 
 void setup() {
   /*
@@ -44,6 +48,7 @@ void loop() {
 
   if (newTimerInterrupt == true) {
     // Generate a new random number for LED
+    clearAllLeds();
     randomLed = random(0, 4);  // Random LED between 0 and 3
     setLed(randomLed);  // Sytytetään sattumanvarainen LED
     
@@ -79,10 +84,10 @@ void checkGame(byte nbrOfButtonPush) {
   // Tarkistetaan, onko painettu nappi oikea (sama kuin sattumanvarainen LED)
   if (nbrOfButtonPush == randomLed) {
     Serial.println("Oikea nappi painettu! Piste!");
-    showResult(10);  // Esimerkiksi näytetään tulos 10
+    showResult(currentScore);  // Esimerkiksi näytetään tulos 10
   } else {
     Serial.println("Väärä nappi! Peli ohi.");
-    showResult(0);  // Näytetään nolla, peli ohi
+    showResult(currentScore);  // Näytetään nolla, peli ohi
     initializeGame();  // Aloitetaan peli uudelleen
   }
 }
@@ -90,9 +95,8 @@ void checkGame(byte nbrOfButtonPush) {
 void initializeGame() {
   Serial.println("Pelin alustus.");
   clearAllLeds();  // Sammutetaan kaikki LEDit
-  clearAllLeds();
-  showResult(0);  // Näytetään alussa 0
-  gameSpeed = 1000;  // Resetoi pelin nopeus
+  showResult(currentScore);  // Näytetään alussa 0
+  gameSpeed = 5000;  // Resetoi pelin nopeus
   timerInterruptCount = 0;  // Nollaa keskeytyslaskuri
 }
 
