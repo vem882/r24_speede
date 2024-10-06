@@ -37,7 +37,7 @@ void initializeGame(void);
   
 */
 void checkGame(byte);
-
+// hei hei
 
 /*
   startTheGame() subroutine calls InitializeGame()
