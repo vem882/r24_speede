@@ -10,6 +10,8 @@
 // loop() function and interrupt handlers
 volatile int buttonNumber = -1;           // for buttons interrupt handler
 volatile bool newTimerInterrupt = false;  // for timer interrupt handler
+int currentScore = 0;  // Oletusarvo voi olla 0, tai muu alkuarvo
+
 
 // Peliin liittyvät muuttujat
 byte randomLed = 0;
