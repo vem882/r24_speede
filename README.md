@@ -13,7 +13,7 @@ Tämä repository on tarkoitettu Oulun ammattikorkeakoulun TVT24KMO-luokan, Ryhm
 </table>
 
 ## Projektissa käytettävät komponentit
-- Arduino UNO <a href="https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf"> SC52-11SRWA Datasheet</a>
+- Arduino UNO <a href="https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf"> Arduino Uno Datasheet</a>
 - 4x Lediä <a title="LED">💡</a>
 - 4x painiketta <a title="button">📥 📤</a>
 - 2x 7-segmenttinäyttöä  SC52-11SRWA📺 <a href="https://www.farnell.com/datasheets/2047571.pdf?_gl=1*10oxlmm*_gcl_au*OTI1ODYwNzgzLjE3MjgzMzExODQ."> SC52-11SRWA Datasheet</a>
