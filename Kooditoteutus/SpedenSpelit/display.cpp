@@ -1,4 +1,5 @@
 #include "display.h"
+#include <Arduino.h>
 
 // Define pins for 7-segment display control
 const int shiftClockPin = 3; 
@@ -22,7 +23,7 @@ const uint8_t digitBits[] = {
 
 void initializeDisplay(void) {
   // Initialize all the control pins as outputs
-  Serial.println("Ititializing displays");
+  Serial.println("Initializing displays");
   pinMode(shiftClockPin, OUTPUT);
   pinMode(latchClockPin, OUTPUT);
   pinMode(outEnablePin, OUTPUT);
@@ -36,31 +37,24 @@ void initializeDisplay(void) {
   digitalWrite(outEnablePin, LOW);  // Enable output
 }
 
-void writeByte(uint8_t number, bool last) {
+void writeByte(uint8_t number) {
   // Send the byte corresponding to the 7-segment digit
-  shiftOut(serialInputPin, shiftClockPin, MSBFIRST, digitBits[number]);
-  
-  // If this is the last byte, latch the data
-  if (last) {
-    digitalWrite(latchClockPin, HIGH);   // Pulse the latch to make the output visible
-    delayMicroseconds(100);               // Short delay for stability
-    digitalWrite(latchClockPin, LOW);    // Bring the latch low again
-  }
+  shiftOut(serialInputPin, shiftClockPin, MSBFIRST, number);
 }
 
-void writeHighAndLowNumber(uint8_t tens, uint8_t ones) {
-  // Write the tens first without latching
-  writeByte(tens, false);
-  
-  // Write the ones and latch it
-  writeByte(ones, true);  // Latch this one
+void updateDisplay(int score) {
+  int tens = score / 10;
+  int units = score % 10;
+
+  digitalWrite(latchClockPin, LOW);
+  writeByte(digitBits[units]);  // Write units first
+  writeByte(digitBits[tens]);   // Write tens second
+  digitalWrite(latchClockPin, HIGH);
 }
 
-void showResult(byte result) {
-  // Calculate the tens and ones from the result
-  uint8_t tens = result / 10;
-  uint8_t ones = result % 10;
-  
-  // Write the result to the display
-  writeHighAndLowNumber(tens, ones);
+void clearDisplay() {
+  digitalWrite(latchClockPin, LOW);
+  writeByte(0);
+  writeByte(0);
+  digitalWrite(latchClockPin, HIGH);
 }
