@@ -13,23 +13,24 @@ Tämä repository on tarkoitettu Oulun ammattikorkeakoulun TVT24KMO-luokan, Ryhm
 </table>
 
 ## Projektissa käytettävät komponentit
-- Arduino UNO
+- Arduino UNO <a href="https://docs.arduino.cc/resources/datasheets/A000066-datasheet.pdf"> SC52-11SRWA Datasheet</a>
 - 4x Lediä <a title="LED">💡</a>
 - 4x painiketta <a title="button">📥 📤</a>
-- 2x 7-segmenttinäyttö 📺
-- 2x 74HC595 serial-to-parallel muuntimia
+- 2x 7-segmenttinäyttöä  SC52-11SRWA📺 <a href="https://www.farnell.com/datasheets/2047571.pdf?_gl=1*10oxlmm*_gcl_au*OTI1ODYwNzgzLjE3MjgzMzExODQ."> SC52-11SRWA Datasheet</a>
+- 2x 74HC595 serial-to-parallel muuntimia <a href="https://www.diodes.com/assets/Datasheets/74HC595.pdf"> 74HC595 Datasheet</a>
 
 ## Projektin rakenne
 Tässä osiossa kuvaamme projektin tiedostorakenteen ja kunkin tiedoston tarkoituksen. Päivittyy...
 
 - **/images**: Projektiin liityvät kuvat.
 - **/Kooditoteutus**: Projektin kooditotutuksen lähdekoodit.
-- **/Konseptointi**: Projektiin liityvät konseptoinit löytyvät tästä kansiosta.
+- **/Kooditoteutus/SpedenSpelit**: Speeden Spelit kooditotutuksen lähdekoodit.
+- **/Konseptointi**: Projektiin liityvät konseptoinit löytyvät tästä kansiosta, kuten vuokaaviot ja  kytkentäkaaviot.
 - **README.md**: Tämä tiedosto, joka sisältää projektin kuvauksen, sekä suunitelman.
 
 ## Suunnitelma
 -	OAMK:n tietotekniikan tutkinto-ohjelma kurssilla, teemme ryhmätyönä tietotekniikan sovellusprojektin opintojaksolla, jossa suunnittelemme, sekä rakennamme Speden Spelit- pelin, Arduino-mikrokontrollerilla. 
--	Toteutamme projektin ryhmätyönä, johon osallistuu [Neljän hengen porukka](https://github.com/vem882/r24_speede#ryhm%C3%A4n-j%C3%A4senet). 
+-	Toteutamme projektin ryhmätyönä, johon osallistuu [Aleksandr Starchenkov ,Dmitry Troshkov ,Alexey Sheykin  ja Martin Negin](https://github.com/vem882/r24_speede#ryhm%C3%A4n-j%C3%A4senet). 
 Tarkoituksena on oppia projektien toteutusta ryhmätyönä, sekä näyttää aikaisemmilla ohjelmointi ja tietotekniikan kursseilla oppimia asioita, kuten ohjelmointi, Arduinon käsittely ja tuoda nämä opit käytäntöön projektin muodossa. 
 
 
@@ -52,4 +53,13 @@ Tarkoituksena on oppia projektien toteutusta ryhmätyönä, sekä näyttää aik
 
 ### Vaihe 5: Viimeistely 
 - Viimeiset korjaukset, parannukset, ennen julkaisua.
+
+
+## Vuokaavio
+<img src="https://github.com/vem882/r24_speede/blob/main/Konseptointi/vuokaavio.drawio.png?raw=true" width="600px;" alt=""/>
+
+## Kytkentä
+<img src="https://github.com/vem882/r24_speede/blob/main/Konseptointi/kytkentakaavio.png?raw=true" width="600px;" alt=""/>
+
+
 
