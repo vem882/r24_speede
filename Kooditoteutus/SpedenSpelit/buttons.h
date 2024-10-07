@@ -5,8 +5,8 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
-const byte firstPin = 2; // First PinChangeInterrupt on D-bus
-const byte lastPin =  13; // Last PinChangeInterrupt on D-bus
+const byte firstPin = 5; // First PinChangeInterrupt on D-bus
+const byte lastPin =  8; // Last PinChangeInterrupt on D-bus
 
 extern volatile int buttonNumber;
 /* 

@@ -43,7 +43,7 @@ void writeByte(uint8_t number, bool last) {
   // If this is the last byte, latch the data
   if (last) {
     digitalWrite(latchClockPin, HIGH);   // Pulse the latch to make the output visible
-    delayMicroseconds(10);               // Short delay for stability
+    delayMicroseconds(100);               // Short delay for stability
     digitalWrite(latchClockPin, LOW);    // Bring the latch low again
   }
 }

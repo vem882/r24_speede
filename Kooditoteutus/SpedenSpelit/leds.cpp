@@ -60,6 +60,6 @@ void show2(int rounds) {
       setLed(i);  // Sytytetään yksi LED kerrallaan
       delay(delayTime);  // Viive
     }
-    delayTime = max(5000, delayTime - 50);  // Pienennetään viivettä, mutta ei alle 50 ms
+    delayTime = max(5000, delayTime - 500);  // Pienennetään viivettä, mutta ei alle 50 ms
   }
 }
