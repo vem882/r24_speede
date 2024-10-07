@@ -1,6 +1,6 @@
-# Speden Spelit
+# Speeden Spelit
 
-Tämä repository on tarkoitettu Oulun ammattikorkeakoulun TVT24KMO-luokan, Ryhmän 24 tietotekniikan sovellusprojektia varten, jossa toteutamme Speden Spelit -pelin käyttämällä Arduino Uno -mikrokontrolleria ja muita elektroniikkakomponentteja.
+Tämä repository on tarkoitettu Oulun ammattikorkeakoulun TVT24KMO-luokan, Ryhmän 24 tietotekniikan sovellusprojektia varten, jossa toteutamme Speeden Spelit (nopeuspeli) -pelin käyttämällä Arduino Uno -mikrokontrolleria ja muita elektroniikkakomponentteja.
 
 ## Ryhmän jäsenet
  <table>
