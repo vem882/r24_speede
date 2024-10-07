@@ -86,10 +86,10 @@ void checkGame(byte nbrOfButtonPush) {
   // Tarkistetaan, onko painettu nappi oikea (sama kuin sattumanvarainen LED)
   if (nbrOfButtonPush == randomLed) {
     Serial.println("Oikea nappi painettu! Piste!");
-    showResult(currentScore);  // Esimerkiksi näytetään tulos 10
+    showResult(10);  // Esimerkiksi näytetään tulos 10
   } else {
     Serial.println("Väärä nappi! Peli ohi.");
-    showResult(currentScore);  // Näytetään nolla, peli ohi
+    showResult(0);  // Näytetään nolla, peli ohi
     initializeGame();  // Aloitetaan peli uudelleen
   }
 }
