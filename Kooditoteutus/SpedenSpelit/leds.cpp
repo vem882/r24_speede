@@ -12,7 +12,7 @@ void initializeLeds()
         pinMode(ledPins[i], OUTPUT);
     }
     setAllLeds();
-    delay(100);
+    delay(2000);
     clearAllLeds();
 }
 
@@ -60,6 +60,6 @@ void show2(int rounds) {
       setLed(i);  // Sytytetään yksi LED kerrallaan
       delay(delayTime);  // Viive
     }
-    delayTime = max(5000, delayTime - 500);  // Pienennetään viivettä, mutta ei alle 50 ms
+    delayTime = max(5000, delayTime - 1000);  // Pienennetään viivettä, mutta ei alle 50 ms
   }
 }

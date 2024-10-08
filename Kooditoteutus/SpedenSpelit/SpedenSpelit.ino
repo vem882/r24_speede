@@ -34,6 +34,12 @@ void setup() {
   
   // Ladataan korkein pistemäärä EEPROMista
   highScore = EEPROM.read(0);
+  if (highScore == 255) {
+    // Alustamaton, asetetaan highScore nollaksi
+    highScore = 0;
+        // Tallennetaan nolla EEPROMiin
+    EEPROM.write(0, highScore);
+  }
   
   // Näytetään korkein pistemäärä alussa
   updateDisplay(highScore);
