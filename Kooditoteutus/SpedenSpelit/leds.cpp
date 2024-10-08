@@ -1,7 +1,7 @@
 #include "leds.h"  // Tämä riittää, älä sisällytä toista kertaa!
 
 const int ledPins[] = {9, 10, 11, 12}; // Pins for LEDs
-// LEDien alustaminen: A2, A3, A4, A5 määritellään ulostuloiksi
+// LEDien alustaminen: 9, 10, 11, 12 määritellään ulostuloiksi
 void initializeLeds()
 { 
     Serial.println("Ititializing leds");
@@ -12,7 +12,7 @@ void initializeLeds()
         pinMode(ledPins[i], OUTPUT);
     }
     setAllLeds();
-    delay(2000);
+    delay(3000);
     clearAllLeds();
 }
 
@@ -52,14 +52,14 @@ void show1() {
   clearAllLeds();
 }
 
-// Näyttää LEDit 0-1-2-3-0-1-2-3 ... ja lisää nopeutta jokaisen kierroksen jälkeen
+// Näyttää LEDit ja lisää nopeutta jokaisen kierroksen jälkeen
 void show2(int rounds) {
-  int delayTime = 2000;  // Alustava viive
+  int delayTime = 5000;  // Alustava viive
   for (int r = 0; r < rounds; r++) {
     for (int i = 0; i < 4; i++) {
       setLed(i);  // Sytytetään yksi LED kerrallaan
       delay(delayTime);  // Viive
     }
-    delayTime = max(5000, delayTime - 1000);  // Pienennetään viivettä, mutta ei alle 50 ms
+    delayTime = max(5000, delayTime - 1000);  // Pienennetään viivettä, mutta ei alle 1000 ms
   }
 }

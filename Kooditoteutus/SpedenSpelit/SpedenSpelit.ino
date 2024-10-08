@@ -35,7 +35,7 @@ void setup() {
   // Ladataan korkein pistemäärä EEPROMista
   highScore = EEPROM.read(0);
   if (highScore == 255) {
-    // Alustamaton, asetetaan highScore nollaksi
+    // Jos Alustamaton, asetetaan highScore nollaksi
     highScore = 0;
         // Tallennetaan nolla EEPROMiin
     EEPROM.write(0, highScore);
@@ -81,7 +81,7 @@ void loop() {
   if (digitalRead(2) == LOW && digitalRead(3) == LOW) {
     if (buttonPressTime == 0) {
       buttonPressTime = millis();
-    } else if (millis() - buttonPressTime >= 2000) {
+    } else if (millis() - buttonPressTime >= 5000) {
       highScore = 0;
       EEPROM.write(0, highScore);
       updateDisplay(highScore);
@@ -95,10 +95,12 @@ void loop() {
 
 void initializeTimer(void) {
   // Set up Timer1 for generating regular interrupts
+  cli();
   TCCR1A = 0;  // Normal operation, no PWM
   TCCR1B = (1 << WGM12) | (1 << CS12);  // CTC mode, prescaler 256
   OCR1A = gameSpeed * 16;  // Initial compare value (for 1 second intervals)
   TIMSK1 |= (1 << OCIE1A);  // Enable Timer1 compare interrupt
+  sei();
 }
 
 ISR(TIMER1_COMPA_vect) {
@@ -112,7 +114,7 @@ ISR(TIMER1_COMPA_vect) {
 void initializeGame() {
   currentScore = 0;
   gameSpeed = 5000;
-  timerInterruptCount = 0;
+  timerInterruptCount = 1000;
   gameStarted = false;
   clearAllLeds();
   updateDisplay(highScore);  // Näytetään korkein pistemäärä alussa
@@ -122,7 +124,7 @@ void initializeGame() {
 void startTheGame() {
   currentScore = 0;
   gameSpeed = 5000;
-  timerInterruptCount = 0;
+  timerInterruptCount = 1000;
   gameStarted = true;
   updateDisplay(currentScore);  // Näytetään 0, kun peli alkaa
   Serial.println("Game started!");
