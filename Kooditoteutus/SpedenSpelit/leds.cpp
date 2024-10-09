@@ -1,11 +1,11 @@
-#include "leds.h"  // Tämä riittää, älä sisällytä toista kertaa!
+#include "leds.h"
 
-const int ledPins[] = {9, 10, 11, 12}; // Pins for LEDs
-// LEDien alustaminen: 9, 10, 11, 12 määritellään ulostuloiksi
+const int ledPins[] = {12, 11, 10, 9}; // Pins for LEDs
+
 void initializeLeds()
 { 
-    Serial.println("Ititializing leds");
-    for (int i = 0; i < sizeof(ledPins) / sizeof(ledPins[0]); i++)
+    Serial.println("Initializing leds");
+    for (int i = 0; i < 4; i++)
     {
         Serial.print("LED pin: ");
         Serial.println(ledPins[i]);
@@ -16,7 +16,6 @@ void initializeLeds()
     clearAllLeds();
 }
 
-// Yksittäisen LEDin sytyttäminen: Annetaan numero väliltä 0-3
 void setLed(byte ledNumber)
 {
     digitalWrite(ledPins[ledNumber], HIGH); 
@@ -24,7 +23,7 @@ void setLed(byte ledNumber)
 
 void clearAllLeds()
 {
-    for (int i = 0; i < sizeof(ledPins) / sizeof(ledPins[0]); i++)
+    for (int i = 0; i < 4; i++)
     {
         digitalWrite(ledPins[i], LOW);
     } 
@@ -32,12 +31,11 @@ void clearAllLeds()
 
 void setAllLeds()
 {
-    for (int i = 0; i < sizeof(ledPins) / sizeof(ledPins[0]); i++)
+    for (int i = 0; i < 4; i++)
     {
         digitalWrite(ledPins[i], HIGH);
     }
 }
-
 // Näyttää binäärinumerot 0-15 LEDeillä 
 void show1() {
   for (int i = 0; i <= 15; i++) {

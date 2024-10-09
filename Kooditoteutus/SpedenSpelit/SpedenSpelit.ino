@@ -10,15 +10,22 @@
 // loop() function and interrupt handlers
 volatile int buttonNumber = -1;           // for buttons interrupt handler
 volatile bool newTimerInterrupt = false;  // for timer interrupt handler
-int currentScore = 0;  // Oletusarvo voi olla 0, tai muu alkuarvo
-int highScore = 0;  // Korkein pistemäärä, joka tallennetaan EEPROMiin
+volatile int numberOfTimerInterrupts = 0; // Increased on every timer interrupt. Used to decrease timer interrupt interval
+volatile int timerInterruptSpeed = 15624; // Timer interrupt interval (15624 = 1Hz)
+volatile int currentScore = 0;  // Oletusarvo voi olla 0, tai muu alkuarvo
+volatile int highScore = 0;  // Korkein pistemäärä, joka tallennetaan EEPROMiin
 
 // Peliin liittyvät muuttujat
 byte randomLed = 0;
-int timerInterruptCount = 0;
-int gameSpeed = 5000;  // Alustava pelin nopeus
-bool gameStarted = false;  // Pelin tila
-unsigned long buttonPressTime = 0;  // Painikkeen painalluksen aloitusaika
+volatile int timerInterruptCount = 0;
+volatile int gameSpeed = 1000;  // Alustava pelin nopeus (1 Hz)
+volatile bool gameStarted = false;  // Pelin tila
+volatile int buttonPressTime = 0;  // Painikkeen painalluksen aloitusaika
+volatile int gameStartTime = 0;  // Pelin käynnistysaika
+volatile bool countdownStarted = false;  // Laskennan tila
+volatile bool waitingForStart = true;  // Odotetaan pelin käynnistystä
+volatile unsigned long lastActivityTime = 0;  // Viimeisin aktiivisuusaika
+volatile unsigned long ledLitTime = 0;        // Aika, jolloin LED syttyi
 
 void setup() {
   /*
@@ -34,12 +41,6 @@ void setup() {
   
   // Ladataan korkein pistemäärä EEPROMista
   highScore = EEPROM.read(0);
-  if (highScore == 255) {
-    // Jos Alustamaton, asetetaan highScore nollaksi
-    highScore = 0;
-        // Tallennetaan nolla EEPROMiin
-    EEPROM.write(0, highScore);
-  }
   
   // Näytetään korkein pistemäärä alussa
   updateDisplay(highScore);
@@ -49,85 +50,132 @@ void setup() {
 }
 
 void loop() {
-  if (buttonNumber >= 0) {
-    if (!gameStarted) {
-      startTheGame();
+  if (millis() - lastActivityTime > 60000) {
+    // Siirrytään virransäästötilaan, jos ei ole ollut aktiivisuutta minuuttiin
+    enterPowerSaveMode();
+  }
+
+  if (waitingForStart) {
+    if (buttonNumber >= 0) {
+      startCountdown();
+      waitingForStart = false;
       gameStarted = true;
-    } else {
-      // check the game if 0 <= buttonNumber < 4
-      if (buttonNumber >= 0 && buttonNumber < 4) {
-        checkGame(buttonNumber);
-      }
-    }
-
-    buttonNumber = -1;  // Reset button state after processing
-  }
-
-  if (newTimerInterrupt == true) {
-    if (gameStarted) {
-      // Generate a new random number for LED
-      clearAllLeds();
-      randomLed = random(0, 4);  // Random LED between 0 and 3
-      setLed(randomLed);  // Sytytetään sattumanvarainen LED
-    } else {
-      // Näytetään korkein pistemäärä, kun peli ei ole käynnissä
-      updateDisplay(highScore);
-    }
-
-    newTimerInterrupt = false;  // Nollataan keskeytyksen tilamuuttuja
-  }
-
-  // Tarkistetaan, onko kahta painiketta painettu 2 sekuntia high scoren nollaamiseksi
-  if (digitalRead(2) == LOW && digitalRead(3) == LOW) {
-    if (buttonPressTime == 0) {
-      buttonPressTime = millis();
-    } else if (millis() - buttonPressTime >= 5000) {
-      highScore = 0;
-      EEPROM.write(0, highScore);
-      updateDisplay(highScore);
-      Serial.println("High score reset!");
-      buttonPressTime = 0;
+      buttonNumber = -1;  // Reset button state after processing
+      lastActivityTime = millis();  // Päivitetään viimeisin aktiivisuusaika
     }
   } else {
-    buttonPressTime = 0;
+    if (buttonNumber >= 0) {
+      Serial.print("Pressed button: ");
+      Serial.println(buttonNumber);
+      if (gameStarted) {
+        // check the game if 0 <= buttonNumber < 4
+        if (buttonNumber >= 0 && buttonNumber < 4) {
+          checkGame(buttonNumber);
+        }
+      }
+      buttonNumber = -1;  // Reset button state after processing
+      lastActivityTime = millis();  // Päivitetään viimeisin aktiivisuusaika
+    }
+
+    if (gameStarted && !countdownStarted && (millis() - ledLitTime >= 5000)) {
+      Serial.println("Time's up! Game over.");
+      gameStarted = false;
+      if (currentScore > highScore) {
+        highScore = currentScore;
+        EEPROM.write(0, highScore);
+      }
+      updateDisplay(currentScore);
+      waitingForStart = true;
+      clearAllLeds();
+    }
+
+    if (newTimerInterrupt == true) {
+      if (gameStarted) {
+        if (countdownStarted) {
+          // Näytetään laskenta 5, 4, 3, 2, 1, 0
+          int countdown = 5 - (millis() - gameStartTime) / 1000;
+          if (countdown >= 0) {
+            updateDisplay(countdown);
+          } else {
+            countdownStarted = false;
+            startTheGame();
+          }
+        } else {
+          // Generate a new random number for LED
+          // Tämä osa voidaan poistaa, koska uusi LED sytytetään checkGame()-funktion sisällä
+        }
+      } else {
+        // Näytetään korkein pistemäärä, kun peli ei ole käynnissä
+        updateDisplay(highScore);
+      }
+
+      newTimerInterrupt = false;  // Nollataan keskeytyksen tilamuuttuja
+    }
+
+    // Tarkistetaan, onko kahta painiketta painettu 2 sekuntia high scoren nollaamiseksi
+    if (digitalRead(2) == LOW && digitalRead(3) == LOW) {
+      if (buttonPressTime == 0) {
+        buttonPressTime = millis();
+      } else if (millis() - buttonPressTime >= 2000) {
+        highScore = 0;
+        EEPROM.write(0, highScore);
+        updateDisplay(highScore);
+        Serial.println("High score reset!");
+        buttonPressTime = 0;
+      }
+    } else {
+      buttonPressTime = 0;
+    }
   }
 }
 
 void initializeTimer(void) {
   // Set up Timer1 for generating regular interrupts
-  cli();
   TCCR1A = 0;  // Normal operation, no PWM
   TCCR1B = (1 << WGM12) | (1 << CS12);  // CTC mode, prescaler 256
-  OCR1A = gameSpeed * 16;  // Initial compare value (for 1 second intervals)
+  OCR1A = 62499;  // Initial compare value for 1 second intervals
   TIMSK1 |= (1 << OCIE1A);  // Enable Timer1 compare interrupt
-  sei();
 }
 
 ISR(TIMER1_COMPA_vect) {
   /*
   Communicate to loop() that it's time to make new random number.
-  Increase timer interrupt rate after 10 interrupts.
   */
   newTimerInterrupt = true;  // Ilmoitetaan, että on aika luoda uusi satunnaisluku
 }
 
 void initializeGame() {
   currentScore = 0;
-  gameSpeed = 5000;
-  timerInterruptCount = 1000;
+  gameSpeed = 1000;  // 1 Hz
+  timerInterruptCount = 0;
   gameStarted = false;
+  countdownStarted = false;
+  waitingForStart = true;
   clearAllLeds();
   updateDisplay(highScore);  // Näytetään korkein pistemäärä alussa
   Serial.println("Game initialized!");
 }
 
+void startCountdown() {
+  gameStartTime = millis();
+  countdownStarted = true;
+  Serial.println("Countdown started!");
+}
+
 void startTheGame() {
   currentScore = 0;
-  gameSpeed = 5000;
-  timerInterruptCount = 1000;
+  gameSpeed = 1000;  // 1 Hz
+  timerInterruptCount = 0;
   gameStarted = true;
   updateDisplay(currentScore);  // Näytetään 0, kun peli alkaa
   Serial.println("Game started!");
+  // Sytytetään ensimmäinen LED ja tallennetaan syttymisaika
+  clearAllLeds();
+  randomLed = random(0, 4);  // Random LED between 0 and 3
+  setLed(randomLed);  // Sytytetään sattumanvarainen LED
+  ledLitTime = millis();  // Tallennetaan syttymisaika
+  Serial.print("LED lit: ");
+  Serial.println(randomLed);
 }
 
 void checkGame(int button) {
@@ -138,8 +186,16 @@ void checkGame(int button) {
     updateDisplay(currentScore);  // Päivitetään näyttö
     if (currentScore % 5 == 0) {
       gameSpeed = gameSpeed * 0.9;  // Peli nopeutuu 10%
-      OCR1A = (gameSpeed * 16) / 1000;  // Asetetaan uusi nopeus
+      if (gameSpeed < 100) gameSpeed = 100;  // Varmistetaan miniminopeus
+      OCR1A = ((unsigned long)gameSpeed * 62500UL) / 1000 - 1;  // Asetetaan uusi nopeus
     }
+    // Sytytetään uusi LED ja tallennetaan syttymisaika
+    clearAllLeds();
+    randomLed = random(0, 4);  // Random LED between 0 and 3
+    setLed(randomLed);  // Sytytetään sattumanvarainen LED
+    ledLitTime = millis();  // Tallennetaan syttymisaika
+    Serial.print("LED lit: ");
+    Serial.println(randomLed);
   } else {
     Serial.println("Wrong button! Game over.");
     gameStarted = false;
@@ -148,5 +204,19 @@ void checkGame(int button) {
       EEPROM.write(0, highScore);  // Tallennetaan uusi korkein pistemäärä EEPROMiin
     }
     updateDisplay(currentScore);  // Näytetään pelin tulos
+    waitingForStart = true;  // Odotetaan pelin uudelleenkäynnistystä
+    clearAllLeds();
   }
+}
+
+void enterPowerSaveMode() {
+  Serial.println("Entering power save mode...");
+  clearAllLeds();
+  clearDisplay();
+  while (digitalRead(3) != LOW) {
+    // Odotetaan, että oikeanpuoleista alanappia painetaan
+  }
+  Serial.println("Exiting power save mode...");
+  lastActivityTime = millis();  // Päivitetään viimeisin aktiivisuusaika
+  initializeGame();  // Alustetaan peli uudelleen
 }
