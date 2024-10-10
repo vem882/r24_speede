@@ -2,10 +2,10 @@
 #include <Arduino.h>
 
 // Define pins for 7-segment display control
-const int shiftClockPin = 3; 
-const int latchClockPin = 4;
-const int outEnablePin = 13;
-const int serialInputPin = 2;
+const int shiftClockPin = 3; // pin to SH_CP 74HC595
+const int latchClockPin = 4; // pin to ST_CP 74HC595
+const int outEnablePin = 13; // pin to OE 74HC595
+const int serialInputPin = 2; // pin to DS 74HC595
 
 // Segment bits for numbers 0-9 (common cathode)
 const uint8_t digitBits[] = {
@@ -23,7 +23,9 @@ const uint8_t digitBits[] = {
 
 void initializeDisplay(void) {
   // Initialize all the control pins as outputs
+  if (debug) {
   Serial.println("Initializing displays");
+  }
   pinMode(shiftClockPin, OUTPUT);
   pinMode(latchClockPin, OUTPUT);
   pinMode(outEnablePin, OUTPUT);

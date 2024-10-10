@@ -21,7 +21,7 @@ void initializeLeds();
   byte ledNumber is 0,1,2 or 3
 */
 void setLed(byte ledNumber);
-
+extern int debug;
 /*
   clearAllLeds(void) subroutine clears all leds
 */

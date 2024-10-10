@@ -7,7 +7,8 @@
 
 const byte firstPin = 5; // First PinChangeInterrupt on D-bus
 const byte lastPin =  8; // Last PinChangeInterrupt on D-bus
-
+extern const int buttonPins[4];  // Declare the buttonPins array
+extern int debug;
 extern volatile int buttonNumber;
 /* 
   initButtonsAndButtonInterrupts subroutine is called from Setup() function

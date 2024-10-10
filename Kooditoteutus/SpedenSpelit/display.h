@@ -6,5 +6,6 @@
 void initializeDisplay(void);
 void updateDisplay(int score);
 void clearDisplay(void);
+extern int debug;
 
 #endif
