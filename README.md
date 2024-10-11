@@ -29,7 +29,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/vem882/r24_speede">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -152,7 +152,7 @@ Tähän tulee esimerkit Käyttötarkoituksista ja olosuihteista.
  <table>
   <tr>
     <td align="center"><a href="https://github.com/AleksandrCGM"><img src="https://avatars.githubusercontent.com/u/160769064" width="50px;" alt=""/><br /><sub><b>Aleksandr Starchenkov</b></sub></a><br /><a title="Code">💻</a></td>
-    <td align="center"><a href="https://github.com/Dmitrytroshkov"><img src="https://avatars.githubusercontent.com/u/181249129" width="05px;" alt=""/><br /><sub><b>Dmitry Troshkov</b></sub></a><br /><a title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Dmitrytroshkov"><img src="https://avatars.githubusercontent.com/u/181249129" width="50px;" alt=""/><br /><sub><b>Dmitry Troshkov</b></sub></a><br /><a title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/AlexeySheykin"><img src="https://avatars.githubusercontent.com/u/181261717" width="50px;" alt=""/><br /><sub><b>Alexey Sheykin</b></sub></a><br /><a title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/vem882"><img src="https://avatars.githubusercontent.com/u/494950" width="50px;" alt=""/><br /><sub><b>Martin Negin</b></sub></a><br /><a title="Code">💻</a></td>
   </tr>
@@ -176,7 +176,6 @@ Projekti lisensoitu GNU General Public License v3.0 - lisenssillä Lue lisää  
 
 Kiitokset ja lähteet: 
 
-* [Choose an Open Source License](https://choosealicense.com)
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
 * [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
 * [Malven's Grid Cheatsheet](https://grid.malven.co/)
@@ -184,6 +183,12 @@ Kiitokset ja lähteet:
 * [GitHub Pages](https://pages.github.com)
 * [Font Awesome](https://fontawesome.com)
 * [React Icons](https://react-icons.github.io/react-icons/search)
+* [Best-README-Template](https://github.com/othneildrew/Best-README-Template)
+* [Arduino UNO R3](https://docs.arduino.cc/hardware/uno-rev3/)
+* [A guide to EEPROM](https://docs.arduino.cc/learn/programming/eeprom-guide/)
+* [Arduino Button Mouse Control](https://docs.arduino.cc/built-in-examples/usb/ButtonMouseControl/)
+* [Serial to Parallel Shifting-Out with a 74HC595](https://docs.arduino.cc/tutorials/communication/guide-to-shift-out/)
+* [Arduino Language Reference](https://docs.arduino.cc/language-reference/)
 
 <p align="right">(<a href="#readme-top">Takaisin alkuun</a>)</p>
 
