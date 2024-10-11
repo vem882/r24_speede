@@ -36,7 +36,7 @@
   <h3 align="center">Speden Spelit: Arduino UNO</h3>
 
   <p align="center">
-   **Speden Spelit** - Nopeus muistipeli, jossa pelaaja painaa painikkeita, sitä mukaan kun painiketta vastaava ledi syttyy. Peli nopeutuu sitä, mukaan kun pelaaja painaa oikeita painikkeita oikean aikaan. 
+   <b>Speden Spelit</b> - Nopeus muistipeli, jossa pelaaja painaa painikkeita, sitä mukaan kun painiketta vastaava ledi syttyy. Peli nopeutuu sitä, mukaan kun pelaaja painaa oikeita painikkeita oikean aikaan. 
 </div>
 
 
@@ -163,7 +163,7 @@ Tähän tulee esimerkit Käyttötarkoituksista ja olosuihteista.
 
 
 <!-- LICENSE -->
-## LicenLisenssise
+## Lisenssi
 
 Projekti lisensoitu GNU General Public License v3.0 - lisenssillä Lue lisää  `LICENSE.txt`.
 
