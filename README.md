@@ -30,7 +30,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/vem882/r24_speede">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/logo.webp" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">Speden Spelit: Arduino UNO</h3>
@@ -206,4 +206,4 @@ Kiitokset ja lähteet:
 [issues-url]: https://github.com/vem882/r24_speede/issues
 [license-shield]: https://img.shields.io/github/license/vem882/r24_speede.svg?style=for-the-badge
 [license-url]: https://github.com/vem882/r24_speede/blob/master/LICENSE.txt
-[product-screenshot]: images/V1.0/IMG_3277.jpeg
+[product-screenshot]: images/logo.webp
