@@ -69,7 +69,7 @@
 <!-- ABOUT THE PROJECT -->
 ## Tietoa projektista
 
-[![SpedenSpell][product-screenshot]](https://example.com)
+[![SpedenSpell][product-screenshot]](https://github.com/vem882/r24_speede)
 
 Tämä projekti on osa Oulun ammattikorkeakoulun "Tietotekniikan sovellusprojekti" -kurssia. **Speden Spelit** on fyysinen muistipeli ja nopeuspeli, jossa pelaajan tulee painaa oikeita nappeja syttyvien LED-valojen mukaisessa järjestyksessä. Peli vaikeutuu jokaisen viiden pisteen jälkeen nopeuttamalla valojen syttymisrytmiä.
 
@@ -206,4 +206,4 @@ Kiitokset ja lähteet:
 [issues-url]: https://github.com/vem882/r24_speede/issues
 [license-shield]: https://img.shields.io/github/license/vem882/r24_speede.svg?style=for-the-badge
 [license-url]: https://github.com/vem882/r24_speede/blob/master/LICENSE.txt
-[product-screenshot]: images/logo.webp
+[product-screenshot]: images/V1.0/IMG_3287.jpg
