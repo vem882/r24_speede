@@ -129,7 +129,7 @@ void loop() {
       } else if (millis() - buttonPressTime >= 2000) {
         highScore = 0;
         EEPROM.write(0, highScore);
-        updateDisplay(highScore);
+        //updateDisplay(highScore);
         if (debug) {
         Serial.println("Checking if need to update Highscore");
         }
