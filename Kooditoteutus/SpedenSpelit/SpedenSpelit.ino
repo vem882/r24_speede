@@ -164,7 +164,7 @@ void initializeGame() {
   countdownStarted = false;
   waitingForStart = true;
   clearAllLeds();
-  updateDisplay(highScore);  // Display the highest score at the start.
+  //updateDisplay(highScore);  // Display the highest score at the start.
   if (debug) {
   Serial.println("Game initialized!");
   }
