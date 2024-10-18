@@ -206,4 +206,4 @@ Kiitokset ja lähteet:
 [issues-url]: https://github.com/vem882/r24_speede/issues
 [license-shield]: https://img.shields.io/github/license/vem882/r24_speede.svg?style=for-the-badge
 [license-url]: https://github.com/vem882/r24_speede/blob/master/LICENSE.txt
-[product-screenshot]: images/V1.0/IMG_3287.jpg
+[product-screenshot]: images/V1.1/IMG_5634.jpeg
