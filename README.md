@@ -48,13 +48,15 @@
     <li>
       <a href="#tietoa-projektista">Tietoa projektista</a>
       <ul>
-        <li><a href="#Rakennettu-käyttäen">Rakennettu käyttäen</a></li>
+        <li><a href="#rakennettu-k%C3%A4ytt%C3%A4en">Rakennettu käyttäen</a></li>
       </ul>
     </li>
     <li>
-      <a href="#näin-pääset-alkuun">Näin pääset alkuun</a><br>
-        <a href="#vuokaavio">Vuokaavio</a>
-        <a href="#kytkentä">Kytkentäkaavio</a>
+       <a href="#näin-pääset-alkuun">Näin pääset alkuun</a>
+      <ul>
+        <li><a href="#vuokaavio">Vuokaavio</a></li>
+      <li><a href="#kytkentä">Kytkentäkaavio</a></li>
+      </ul>
     </li>
     <li><a href="#jatkokehitys">Jatkokehitys</a></li>
     <li><a href="#osallistujat">Osallistujat</a></li>
@@ -139,7 +141,7 @@ Pelissä on myös debug-tila, joka aktivoidaan Spedenspelit.ino-tiedostosta aset
 
 <p align="right">(<a href="#readme-top">Takaisin alkuun</a>)</p>
 
-## Top contributors:
+## Osallistujat:
 
  <table>
   <tr>
