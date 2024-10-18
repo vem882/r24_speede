@@ -56,7 +56,6 @@
       <a href="#vuokaavio">Vuokaavio</a>
       <a href="#kytkentä">Kytkentäkaavio</a>
     </li>
-    <li><a href="#käyttö">Käyttö</a></li>
     <li><a href="#jatkokehitys">Jatkokehitys</a></li>
     <li><a href="#osallistujat">Osallistujat</a></li>
     <li><a href="#lisenssi">Lisenssi</a></li>
@@ -116,13 +115,6 @@ Pelissä on myös debug-tila, joka aktivoidaan Spedenspelit.ino-tiedostosta aset
 
 
 
-<!-- USAGE EXAMPLES -->
-## Käyttö
-
-Tähän tulee esimerkit Käyttötarkoituksista ja olosuihteista. 
-
-
-<p align="right">(<a href="#readme-top">Takaisin alkuun</a>)</p>
 
 ## Vuokaavio
 <img src="https://github.com/vem882/r24_speede/blob/main/Konseptointi/vuokaavio.drawio.png?raw=true" width="600px;" alt=""/>
