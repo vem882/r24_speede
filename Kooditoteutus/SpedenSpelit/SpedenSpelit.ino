@@ -113,7 +113,7 @@ void loop() {
             countdownStarted = false;
             startTheGame();
           }
-        } else { }
+        }
       } else {
         // Show highscore before game starts
         updateDisplay(highScore);
