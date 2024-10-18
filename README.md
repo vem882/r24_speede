@@ -52,9 +52,9 @@
       </ul>
     </li>
     <li>
-      <a href="#näin-pääset-alkuun">Näin pääset alkuun</a>
-      <a href="#vuokaavio">Vuokaavio</a>
-      <a href="#kytkentä">Kytkentäkaavio</a>
+      <a href="#näin-pääset-alkuun">Näin pääset alkuun</a><br>
+        <a href="#vuokaavio">Vuokaavio</a>
+        <a href="#kytkentä">Kytkentäkaavio</a>
     </li>
     <li><a href="#jatkokehitys">Jatkokehitys</a></li>
     <li><a href="#osallistujat">Osallistujat</a></li>
